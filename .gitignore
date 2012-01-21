@@ -37,3 +37,13 @@ Thumbs.db
 # Visual Studio Solutions #
 ###########################
 *.suo
+
+# Visual Studio Projects #
+##########################
+bin/
+obj/
+
+# Nuget #
+#########
+packages/
+!NuGet.exe
