@@ -1,3 +1,8 @@
+ _______ _______ _______ _______ _____ _______ _    _  _____  _____ ______ 
+ |______    |    |_____|    |      |   |        \  /  |     |   |   |     \
+ ______|    |    |     |    |    __|__ |_____    \/   |_____| __|__ |_____/
+
+
 A repository pattern implementation for Code First. 
 
 The compile library is avaliable on NuGet via 
