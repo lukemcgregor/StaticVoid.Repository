@@ -32,6 +32,10 @@ namespace StaticVoid.Core.Repository
             m_TemporaryRemoveSet.Add(entity);
         }
 
+        public void UpdateOnSave(T entity)
+        {
+        }
+
         public void SaveChanges()
         {
             m_EntitySet.AddRange(m_TemporaryAddSet);

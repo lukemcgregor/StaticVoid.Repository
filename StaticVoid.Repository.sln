@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2101BCD2-EB4F-4C0B-96EF-6E59F5FA99AD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FDCF6563-FFC4-42B0-A088-6FB42D9035A0}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README = README
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository", "Staticvoid.Repository\StaticVoid.Repository.csproj", "{ECFB6514-6F45-441F-BA58-6D666E8EDF95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.EntityFramework", "StaticVoid.Repository.EntityFramework\StaticVoid.Repository.EntityFramework.csproj", "{10793B2F-4AF9-4662-BC59-6027B2D67CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.Test", "StaticVoid.Repository.Test\StaticVoid.Repository.Test.csproj", "{46F3A910-C8DB-456A-9D8E-6E8D128B4968}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECFB6514-6F45-441F-BA58-6D666E8EDF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFB6514-6F45-441F-BA58-6D666E8EDF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFB6514-6F45-441F-BA58-6D666E8EDF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFB6514-6F45-441F-BA58-6D666E8EDF95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10793B2F-4AF9-4662-BC59-6027B2D67CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10793B2F-4AF9-4662-BC59-6027B2D67CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10793B2F-4AF9-4662-BC59-6027B2D67CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10793B2F-4AF9-4662-BC59-6027B2D67CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

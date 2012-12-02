@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Reflection;
 using System.Data.Entity.Infrastructure;
 using System.Linq.Expressions;
+using System.Data;
 
 namespace StaticVoid.Core.Repository
 {
@@ -16,18 +17,12 @@ namespace StaticVoid.Core.Repository
         public DbContextRepositoryDataSource(DbContext context)
         {
             m_Context = context;
-            var propertyInfos = context.GetType().GetProperties().Where(p => p.PropertyType == typeof(DbSet<T>));
-            if (!propertyInfos.Any())
-            {
-                throw new ArgumentException("DB doesnt contain type");
-            }
-
-            m_Set = (DbSet<T>)propertyInfos.First().GetValue(context,null);
+            m_Set = context.Set<T>();
         }
 
         public IQueryable<T> GetAll()
         {
-            return m_Set.AsQueryable<T>();
+            return m_Set.AsNoTracking().AsQueryable<T>();
         }
 
         public void AddOnSave(T entity)
@@ -37,7 +32,24 @@ namespace StaticVoid.Core.Repository
 
         public void RemoveOnSave(T entity)
         {
-            m_Set.Remove(entity);
+            var e = m_Context.Entry(entity);
+            if (e.State == EntityState.Detached)
+            {
+                m_Context.Set<T>().Attach(entity);
+                e = m_Context.Entry(entity);
+            }
+            e.State = EntityState.Deleted;
+        }
+
+        public void UpdateOnSave(T entity)
+        {
+            var e = m_Context.Entry(entity);
+            if (e.State == EntityState.Detached)
+            {
+                m_Context.Set<T>().Attach(entity);
+                e = m_Context.Entry(entity);
+            }
+            e.State = EntityState.Modified;
         }
 
         public void SaveChanges()

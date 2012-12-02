@@ -29,6 +29,7 @@ namespace StaticVoid.Core.Repository
 
         public virtual void Update(T entity)
         {
+            Context.UpdateOnSave(entity);
             Context.SaveChanges();
         }
 

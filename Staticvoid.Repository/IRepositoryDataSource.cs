@@ -11,6 +11,7 @@ namespace StaticVoid.Core.Repository
         IQueryable<T> GetAll();
         void AddOnSave(T entity);
         void RemoveOnSave(T entity);
+        void UpdateOnSave(T entity);
         void SaveChanges();
         T GetBy(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
     }
