@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$-beta1</version>
+    <title>StaticVoid Repository Framework</title>
+    <authors>Luke McGregor</authors>
+    <owners>Luke McGregor</owners>
+    <licenseUrl>http://www.opensource.org/licenses/lgpl-3.0.html</licenseUrl>
+    <projectUrl>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</projectUrl>
+    <iconUrl>http://static.codeigniter.com/design/repository.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>
+      A repository pattern Template.
+    </description>
+    <summary>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</summary>
+    <releaseNotes>Split EF Component into StaticVoid.Repository.EntityFramework</releaseNotes>
+    <copyright>Luke McGregor</copyright>
+    <language>en-NZ</language>
+    <tags>Repository</tags>
+  </metadata>
+</package>

@@ -6,9 +6,9 @@
 A repository pattern implementation for Code First. 
 
 The compile library is avaliable on NuGet via 
-	Install-Package StaticVoid.Core.Repository
+	Install-Package StaticVoid.Repository
 or 
-	http://nuget.org/packages/StaticVoid.Core.Repository
+	http://nuget.org/packages/StaticVoid.Repository
 
 More information about how to use this solution and what the package does can be found on my blog here 
 (http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html) 

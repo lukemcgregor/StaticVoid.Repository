@@ -40,6 +40,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="StaticVoid.Repository">
+      <HintPath>..\packages\StaticVoid.Repository.2.0.0-beta1\lib\net45\StaticVoid.Repository.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
@@ -63,6 +66,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaticVoid.Repository.EntityFramework\StaticVoid.Repository.EntityFramework.csproj">
+      <Project>{10793b2f-4af9-4662-bc59-6027b2d67cb0}</Project>
+      <Name>StaticVoid.Repository.EntityFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

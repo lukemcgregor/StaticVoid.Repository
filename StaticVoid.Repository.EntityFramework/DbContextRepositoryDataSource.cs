@@ -8,7 +8,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq.Expressions;
 using System.Data;
 
-namespace StaticVoid.Core.Repository
+namespace StaticVoid.Repository
 {
     public class DbContextRepositoryDataSource<T> : IRepositoryDataSource<T> where T : class
     {
@@ -32,24 +32,40 @@ namespace StaticVoid.Core.Repository
 
         public void RemoveOnSave(T entity)
         {
-            var e = m_Context.Entry(entity);
-            if (e.State == EntityState.Detached)
+            try
             {
-                m_Context.Set<T>().Attach(entity);
-                e = m_Context.Entry(entity);
+                var e = m_Context.Entry(entity);
+                if (e.State == EntityState.Detached)
+                {
+                    m_Context.Set<T>().Attach(entity);
+                    e = m_Context.Entry(entity);
+                }
+                e.State = EntityState.Deleted;
             }
-            e.State = EntityState.Deleted;
+            catch (InvalidOperationException ex)
+            {
+                throw new RepositoryTrackingException(
+                    "An attempt was made to delete an entity you are already modifying, this may happen if you are trying to update using the same repository instance in two place", ex);
+            }
         }
 
         public void UpdateOnSave(T entity)
         {
-            var e = m_Context.Entry(entity);
-            if (e.State == EntityState.Detached)
+            try
             {
-                m_Context.Set<T>().Attach(entity);
-                e = m_Context.Entry(entity);
+                var e = m_Context.Entry(entity);
+                if (e.State == EntityState.Detached)
+                {
+                    m_Context.Set<T>().Attach(entity);
+                    e = m_Context.Entry(entity);
+                }
+                e.State = EntityState.Modified;
             }
-            e.State = EntityState.Modified;
+            catch (InvalidOperationException ex)
+            {
+                throw new RepositoryTrackingException(
+                    "An attempt was made to update an entity you are already modifying, this may happen if you are trying to update using the same repository instance in two place", ex);
+            }
         }
 
         public void SaveChanges()

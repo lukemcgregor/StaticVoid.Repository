@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Entity;
 
-namespace StaticVoid.Core.Repository.Test
+namespace StaticVoid.Repository.Test
 {
     [TestClass]
     public class EntityFrameworkTests
@@ -20,7 +20,8 @@ namespace StaticVoid.Core.Repository.Test
                 _context.Database.Delete();
             }
             _context.Database.CreateIfNotExists();
-            _testRepo = new SimpleRepository<TestEntity>(new DbContextRepositoryDataSource<TestEntity>(_context));
+            var ds = new DbContextRepositoryDataSource<TestEntity>(_context);
+            _testRepo = new SimpleRepository<TestEntity>(ds);
         }
 
         [TestCleanup]
@@ -87,13 +88,87 @@ namespace StaticVoid.Core.Repository.Test
                 ctx.SaveChanges();
             }
 
-            t = new TestEntity { Id = t.Id, Something = "zzz" };
+            Assert.AreEqual(1, _testRepo.GetAll().Count());
+            Assert.AreEqual("zzz", _testRepo.GetAll().First().Something);
+
+            Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
+            Assert.AreEqual("zzz", _context.TestEntities.AsNoTracking().First().Something);
+
+            t = new TestEntity { Id = t.Id, Something = "aaa" };
+
+            _testRepo.Update(t);
+
+            Assert.AreEqual(1, _testRepo.GetAll().Count());
+            Assert.AreEqual("aaa", _testRepo.GetAll().First().Something);
+
+            Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
+            Assert.AreEqual("aaa", _context.TestEntities.AsNoTracking().First().Something);
+        }
+
+        [TestMethod, ExpectedException(typeof(RepositoryTrackingException))]
+        public void UpdateEntityTwiceWithDifferentVersionsShouldThrowAnException()
+        {
+            Assert.AreEqual(0, _testRepo.GetAll().Count());
+            Assert.AreEqual(0, _context.TestEntities.AsNoTracking().Count());
+
+            TestEntity t = new TestEntity { Something = "zzz" };
+            using (var ctx = new TestContext())
+            {
+                ctx.TestEntities.Add(t);
+                ctx.SaveChanges();
+            }
 
             Assert.AreEqual(1, _testRepo.GetAll().Count());
             Assert.AreEqual("zzz", _testRepo.GetAll().First().Something);
 
             Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
             Assert.AreEqual("zzz", _context.TestEntities.AsNoTracking().First().Something);
+
+            var t1 = new TestEntity { Id = t.Id, Something = "aaa" };
+            var t2 = new TestEntity { Id = t.Id, Something = "bbb" };
+
+            _testRepo.Update(t1);
+            _testRepo.Update(t2);//exception
+        }
+
+        [TestMethod]
+        public void SequentialOperationsOnTheSameObject()
+        {
+            Assert.AreEqual(0, _testRepo.GetAll().Count());
+            Assert.AreEqual(0, _context.TestEntities.AsNoTracking().Count());
+
+            TestEntity t = new TestEntity { Something = "zzz" };
+            using (var ctx = new TestContext())
+            {
+                ctx.TestEntities.Add(t);
+                ctx.SaveChanges();
+            }
+
+            Assert.AreEqual(1, _testRepo.GetAll().Count());
+            Assert.AreEqual("zzz", _testRepo.GetAll().First().Something);
+
+            Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
+            Assert.AreEqual("zzz", _context.TestEntities.AsNoTracking().First().Something);
+
+            t.Something = "aaa";
+
+            _testRepo.Update(t);
+
+            Assert.AreEqual(1, _testRepo.GetAll().Count());
+            Assert.AreEqual("aaa", _testRepo.GetAll().First().Something);
+
+            Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
+            Assert.AreEqual("aaa", _context.TestEntities.AsNoTracking().First().Something);
+
+            t.Something = "bbb";
+
+            _testRepo.Update(t);
+
+            Assert.AreEqual(1, _testRepo.GetAll().Count());
+            Assert.AreEqual("bbb", _testRepo.GetAll().First().Something);
+
+            Assert.AreEqual(1, _context.TestEntities.AsNoTracking().Count());
+            Assert.AreEqual("bbb", _context.TestEntities.AsNoTracking().First().Something);
 
             _testRepo.Delete(t);
 

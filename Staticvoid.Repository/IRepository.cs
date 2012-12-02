@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 
-namespace StaticVoid.Core.Repository
+namespace StaticVoid.Repository
 {
     public interface IRepository<T> : IDisposable
     {
