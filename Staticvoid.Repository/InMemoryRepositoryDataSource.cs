@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace StaticVoid.Repository
 {
-    public class InMemoryRepositoryDataSource<T> : IRepositoryDataSource<T>
+    public class InMemoryRepositoryDataSource<T> : IRepositoryDataSource<T> where T : class
     {
         private static List<T> m_EntitySet = new List<T>();
         private static List<T> m_TemporaryAddSet = new List<T>();

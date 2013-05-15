@@ -14,10 +14,12 @@ namespace StaticVoid.Repository
     {
         private DbContext m_Context;
         private DbSet<T> m_Set;
+        private EntityFrameworkAttacher<T> m_Attacher;
         public DbContextRepositoryDataSource(DbContext context)
         {
             m_Context = context;
             m_Set = context.Set<T>();
+            m_Attacher = new EntityFrameworkAttacher<T>(context);
         }
 
         public IQueryable<T> GetAll()
@@ -34,12 +36,7 @@ namespace StaticVoid.Repository
         {
             try
             {
-                var e = m_Context.Entry(entity);
-                if (e.State == EntityState.Detached)
-                {
-                    m_Context.Set<T>().Attach(entity);
-                    e = m_Context.Entry(entity);
-                }
+                var e = m_Attacher.EnsureAttachedEF(entity);
                 e.State = EntityState.Deleted;
             }
             catch (InvalidOperationException ex)
@@ -53,12 +50,7 @@ namespace StaticVoid.Repository
         {
             try
             {
-                var e = m_Context.Entry(entity);
-                if (e.State == EntityState.Detached)
-                {
-                    m_Context.Set<T>().Attach(entity);
-                    e = m_Context.Entry(entity);
-                }
+                var e = m_Attacher.EnsureAttachedEF(entity);
                 e.State = EntityState.Modified;
             }
             catch (InvalidOperationException ex)

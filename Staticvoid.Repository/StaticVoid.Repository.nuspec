@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>$id$</id>
-    <version>$version$-beta1</version>
+    <version>$version$</version>
     <title>StaticVoid Repository Framework</title>
     <authors>Luke McGregor</authors>
     <owners>Luke McGregor</owners>
@@ -19,4 +19,7 @@
     <language>en-NZ</language>
     <tags>Repository</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\*.pdb" target="lib\net40\" />
+  </files>
 </package>

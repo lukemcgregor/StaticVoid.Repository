@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>$id$</id>
-    <version>$version$-beta2</version>
+    <version>$version$</version>
     <title>StaticVoid Repository Framework for EntityFramework</title>
     <authors>Luke McGregor</authors>
     <owners>Luke McGregor</owners>
@@ -30,4 +30,7 @@
     <language>en-NZ</language>
     <tags>Repository, EntityFramework</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\*.pdb" target="lib\net40\" />
+  </files>
 </package>

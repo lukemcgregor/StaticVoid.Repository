@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace StaticVoid.Repository
 {
-    public interface IRepositoryDataSource<T> : IDisposable
+    public interface IRepositoryDataSource<T> : IDisposable where T : class
     {
         IQueryable<T> GetAll();
         void AddOnSave(T entity);

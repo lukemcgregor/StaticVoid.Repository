@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace StaticVoid.Repository
 {
-    public class SimpleRepository<T> : IRepository<T>
+    public class SimpleRepository<T> : IRepository<T> where T : class
     {
         protected IRepositoryDataSource<T> Context{ get; set; }
 
