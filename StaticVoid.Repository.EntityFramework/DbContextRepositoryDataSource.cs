@@ -22,9 +22,16 @@ namespace StaticVoid.Repository
             m_Attacher = new EntityFrameworkAttacher<T>(context);
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<T> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            return m_Set.AsNoTracking().AsQueryable<T>();
+            var set = m_Set.AsNoTracking();
+
+            foreach (var include in includes)
+            {
+                set.Include(include);
+            }
+
+            return set.AsQueryable<T>();
         }
 
         public void AddOnSave(T entity)

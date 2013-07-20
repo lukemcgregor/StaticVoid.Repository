@@ -12,12 +12,16 @@ namespace StaticVoid.Repository
         private static List<T> m_TemporaryAddSet = new List<T>();
         private static List<T> m_TemporaryRemoveSet = new List<T>();
 
-        public InMemoryRepositoryDataSource(List<T> existing = null)
+        public InMemoryRepositoryDataSource()
+        {
+            m_EntitySet = new List<T>();
+        }
+        public InMemoryRepositoryDataSource(List<T> existing)
         {
             m_EntitySet = existing ?? new List<T>();
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<T> GetAll(params Expression<Func<T, object>>[] includes)
         {
             return m_EntitySet.AsQueryable<T>();
         }

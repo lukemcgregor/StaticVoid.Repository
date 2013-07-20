@@ -33,9 +33,9 @@ namespace StaticVoid.Repository
             Context.SaveChanges();
         }
 
-        public virtual IQueryable<T> GetAll()
+        public virtual IQueryable<T> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            return Context.GetAll();
+            return Context.GetAll(includes);
         }
 
         public virtual void Dispose()

@@ -25,7 +25,7 @@
       this will allow you to inject repositories using the form IRepository&lt;T&gt; in your service implementations. Repository will have basic methods implemented for the type to allow crud.
     </description>
     <summary>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</summary>
-    <releaseNotes>Split EF Component into StaticVoid.Repository.EntityFramework</releaseNotes>
+    <releaseNotes>Added getall includes in repo 2.2.0</releaseNotes>
     <copyright>Luke McGregor</copyright>
     <language>en-NZ</language>
     <tags>Repository, EntityFramework</tags>

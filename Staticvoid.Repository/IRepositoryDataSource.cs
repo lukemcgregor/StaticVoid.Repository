@@ -8,7 +8,7 @@ namespace StaticVoid.Repository
 {
     public interface IRepositoryDataSource<T> : IDisposable where T : class
     {
-        IQueryable<T> GetAll();
+        IQueryable<T> GetAll(params Expression<Func<T, object>>[] includes);
         void AddOnSave(T entity);
         void RemoveOnSave(T entity);
         void UpdateOnSave(T entity);
