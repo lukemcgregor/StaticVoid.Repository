@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2101BCD2-EB4F-4C0B-96EF-6E59F5FA99AD}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.exe = .nuget\NuGet.exe
@@ -18,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.EntityFramework", "StaticVoid.Repository.EntityFramework\StaticVoid.Repository.EntityFramework.csproj", "{10793B2F-4AF9-4662-BC59-6027B2D67CB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.Test", "StaticVoid.Repository.Test\StaticVoid.Repository.Test.csproj", "{46F3A910-C8DB-456A-9D8E-6E8D128B4968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.AzureStorage", "StaticVoid.Repository.AzureStorage\StaticVoid.Repository.AzureStorage.csproj", "{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.AzureStorage.Test", "StaticVoid.Repository.AzureStorage.Test\StaticVoid.Repository.AzureStorage.Test.csproj", "{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,14 @@ Global
 		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F3A910-C8DB-456A-9D8E-6E8D128B4968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
