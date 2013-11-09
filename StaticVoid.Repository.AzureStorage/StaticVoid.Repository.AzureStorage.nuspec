@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>StaticVoid Repository Framework for Azure Storage</title>
+    <authors>Luke McGregor</authors>
+    <owners>Luke McGregor</owners>
+    <licenseUrl>http://www.opensource.org/licenses/lgpl-3.0.html</licenseUrl>
+    <description>
+		A repository pattern implementation for Azure Storage. I dont have any docs for this yet but the source is avaliable here: https://github.com/lukemcgregor/StaticVoid.Repository, if you would like some more info raise an issue and I will write some up.
+	</description>
+    <copyright>Luke McGregor</copyright>
+    <language>en-NZ</language>
+    <tags>Repository, Azure</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\*.pdb" target="lib\net45\" />
+  </files>
+</package>
