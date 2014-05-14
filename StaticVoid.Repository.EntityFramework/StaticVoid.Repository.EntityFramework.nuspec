@@ -25,12 +25,12 @@
       this will allow you to inject repositories using the form IRepository&lt;T&gt; in your service implementations. Repository will have basic methods implemented for the type to allow crud.
     </description>
     <summary>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</summary>
-    <releaseNotes>Added getall includes in repo 2.2.0</releaseNotes>
+    <releaseNotes>Implemeted async into ef repository</releaseNotes>
     <copyright>Luke McGregor</copyright>
     <language>en-NZ</language>
     <tags>Repository, EntityFramework</tags>
   </metadata>
   <files>
-    <file src="bin\Release\*.pdb" target="lib\net40\" />
+    <file src="bin\Release\*.pdb" target="lib\net45\" />
   </files>
 </package>

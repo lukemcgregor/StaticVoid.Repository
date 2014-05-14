@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace StaticVoid.Repository
 {
-    public class SimpleRepository<T> : IRepository<T> where T : class
+    public class SimpleRepository<T> : IAsyncRepository<T> where T : class
     {
         protected IRepositoryDataSource<T> Context{ get; set; }
 
@@ -47,5 +48,44 @@ namespace StaticVoid.Repository
         {
             return Context.GetBy(predicate, includes);
         }
-    }
+
+		public System.Threading.Tasks.Task CreateAsync(T entity)
+		{
+			Context.AddOnSave(entity);
+			if (Context is IAsyncRepositoryDataSource<T>)
+			{
+				return (Context as IAsyncRepositoryDataSource<T>).SaveChangesAsync();
+			}
+			return Task.Run(() =>
+			{
+				Context.SaveChanges();
+			});
+		}
+
+		public System.Threading.Tasks.Task DeleteAsync(T entity)
+		{
+			Context.RemoveOnSave(entity);
+			if (Context is IAsyncRepositoryDataSource<T>)
+			{
+				return (Context as IAsyncRepositoryDataSource<T>).SaveChangesAsync();
+			}
+			return Task.Run(() =>
+			{
+				Context.SaveChanges();
+			});
+		}
+
+		public System.Threading.Tasks.Task UpdateAsync(T entity)
+		{
+			Context.UpdateOnSave(entity);
+			if (Context is IAsyncRepositoryDataSource<T>)
+			{
+				return (Context as IAsyncRepositoryDataSource<T>).SaveChangesAsync();
+			}
+			return Task.Run(() =>
+			{
+				Context.SaveChanges();
+			});
+		}
+	}
 }

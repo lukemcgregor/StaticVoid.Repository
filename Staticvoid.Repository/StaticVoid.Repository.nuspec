@@ -14,12 +14,12 @@
       A repository pattern Template.
     </description>
     <summary>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</summary>
-    <releaseNotes>Added include for getall in repositories</releaseNotes>
+    <releaseNotes>Async CUD</releaseNotes>
     <copyright>Luke McGregor</copyright>
     <language>en-NZ</language>
     <tags>Repository</tags>
   </metadata>
   <files>
-    <file src="bin\Release\*.pdb" target="lib\net40\" />
+    <file src="bin\Release\*.pdb" target="lib\net45\" />
   </files>
 </package>
