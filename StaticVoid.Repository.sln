@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20617.1 PREVIEW
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2101BCD2-EB4F-4C0B-96EF-6E59F5FA99AD}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.AzureStorage", "StaticVoid.Repository.AzureStorage\StaticVoid.Repository.AzureStorage.csproj", "{A5EEF399-1C29-4B94-8F14-F4F71B4E9B48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.AzureStorage.Test", "StaticVoid.Repository.AzureStorage.Test\StaticVoid.Repository.AzureStorage.Test.csproj", "{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.Csv", "StaticVoid.Repository.Csv\StaticVoid.Repository.Csv.csproj", "{BB6E0E88-5F19-4E76-B0FE-6364DB2FF86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticVoid.Repository.Csv.Test", "StaticVoid.Repository.Csv.Test\StaticVoid.Repository.Csv.Test.csproj", "{2F019FF1-EBC1-41CC-91BC-A231346CC53D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D605E2F-F5B2-4204-AD0F-43DFCA3C5C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6E0E88-5F19-4E76-B0FE-6364DB2FF86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6E0E88-5F19-4E76-B0FE-6364DB2FF86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6E0E88-5F19-4E76-B0FE-6364DB2FF86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6E0E88-5F19-4E76-B0FE-6364DB2FF86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F019FF1-EBC1-41CC-91BC-A231346CC53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F019FF1-EBC1-41CC-91BC-A231346CC53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F019FF1-EBC1-41CC-91BC-A231346CC53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F019FF1-EBC1-41CC-91BC-A231346CC53D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
