@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.StorageClient;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -56,7 +57,7 @@ namespace StaticVoid.Repository.AzureStorage
             // Retrieve a reference to a container 
             // Container name must use lower case
             CloudBlobContainer container = blobClient.GetContainerReference(containerName.ToLower());
-            container.CreateIfNotExist();
+            container.CreateIfNotExists();
 
 			if (storageContainer.Public)
 			{
@@ -101,13 +102,8 @@ namespace StaticVoid.Repository.AzureStorage
 			
 			foreach (var prop in entityProperties.Where(p => p.CanRead))
 			{
-				var attributeMatches = _attributeProperties.Where(p => p.Name == prop.Name && p.PropertyType == prop.PropertyType);
 				var propMatches = _propProperties.Where(p => p.Name == prop.Name && p.PropertyType == prop.PropertyType);
-				if (attributeMatches.Any())
-				{
-					attributeMatches.First().SetValue(blob.Attributes, prop.GetValue(entity));
-				}
-				else if (propMatches.Any())
+				if (propMatches.Any())
 				{
 					propMatches.First().SetValue(blob.Properties, prop.GetValue(entity));
 				}
@@ -118,7 +114,7 @@ namespace StaticVoid.Repository.AzureStorage
 				byte[] byteData = (byte[])byteDataProperties.First().GetValue(entity);
 				if (byteData != null)
 				{
-					blob.UploadByteArray(byteData);
+					blob.UploadFromByteArray(byteData, 0, byteData.Length);
 				}
 			}
 			else if (streamDataProperties.Any())
@@ -156,21 +152,14 @@ namespace StaticVoid.Repository.AzureStorage
 
 			foreach (var prop in entityProperties.Where(p => p.CanWrite))
 			{
-				var attributeMatches = _attributeProperties.Where(p => p.Name == prop.Name && p.PropertyType == prop.PropertyType);
 				var propMatches = _propProperties.Where(p => p.Name == prop.Name && p.PropertyType == prop.PropertyType);
-				if (attributeMatches.Any())
-				{
-					prop.SetValue(entity, attributeMatches.First().GetValue(blob.Attributes));
-				}
-				else if (propMatches.Any())
+				if (propMatches.Any())
 				{
 					prop.SetValue(entity, propMatches.First().GetValue(blob.Properties));
 				}
 			}
 		}
 
-
-		private PropertyInfo[] _attributeProperties = typeof(BlobAttributes).GetProperties();
 		private PropertyInfo[] _propProperties = typeof(BlobProperties).GetProperties();
 
 		private Func<PropertyInfo, bool> _uriFilter = t => t.PropertyType == typeof(Uri);

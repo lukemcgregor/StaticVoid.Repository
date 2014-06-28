@@ -10,6 +10,7 @@
     <description>
 		A repository pattern implementation for Azure Storage. I dont have any docs for this yet but the source is avaliable here: https://github.com/lukemcgregor/StaticVoid.Repository, if you would like some more info raise an issue and I will write some up.
 	</description>
+    <releaseNotes>Moved to v3 of the azure storage API. This is a breaking change as Attributes property was removed in this version so no more automap.</releaseNotes>
     <copyright>Luke McGregor</copyright>
     <language>en-NZ</language>
     <tags>Repository, Azure</tags>
