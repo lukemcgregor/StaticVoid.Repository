@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StaticVoid.Repository.AzureStorage
+namespace StaticVoid.Repository
 {
     public abstract class AzureStorageContext
     {

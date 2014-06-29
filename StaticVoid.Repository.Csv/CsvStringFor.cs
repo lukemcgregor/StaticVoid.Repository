@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StaticVoid.Repository.Csv
+namespace StaticVoid.Repository
 {
 	public interface ICsvStringFor<T> where T : class
 	{

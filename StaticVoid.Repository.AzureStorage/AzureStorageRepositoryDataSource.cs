@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StaticVoid.Repository.AzureStorage
+namespace StaticVoid.Repository
 {
 	public class AzureStorageRepositoryDataSource<T> : IRepositoryDataSource<T> where T : class, new()
 	{

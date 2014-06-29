@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StaticVoid.Repository.Csv
+namespace StaticVoid.Repository
 {
 	public class CsvStringRepositoryDataSource<T> : IRepositoryDataSource<T> where T :class
 	{
