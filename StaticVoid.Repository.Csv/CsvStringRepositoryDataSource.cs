@@ -11,13 +11,14 @@ namespace StaticVoid.Repository.Csv
 	public class CsvStringRepositoryDataSource<T> : IRepositoryDataSource<T> where T :class
 	{
 		private readonly ICsvStringFor<T> m_CsvString;
-		protected readonly IEnumerable<T> m_Items;
+		protected IEnumerable<T> m_Items;
 
 		protected CsvStringRepositoryDataSource() { }
 
 		public CsvStringRepositoryDataSource(ICsvStringFor<T> csvString)
 		{
-			m_Items = new CsvReader(new StringReader(csvString.CsvString)).GetRecords<T>().ToList();
+			m_CsvString = csvString;
+			m_Items = new CsvReader(new StringReader(m_CsvString.CsvString)).GetRecords<T>().ToList();
 		}
 
 		private List<T> m_ToAdd = new List<T>();
