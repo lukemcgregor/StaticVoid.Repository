@@ -55,6 +55,7 @@
     <Compile Include="InMemoryRepositoryDataSource.cs" />
     <Compile Include="IAsyncRepository .cs" />
     <Compile Include="IAsyncRepositoryDataSource.cs" />
+    <Compile Include="IReadonlyRepository.cs" />
     <Compile Include="IRepositoryDataSource.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

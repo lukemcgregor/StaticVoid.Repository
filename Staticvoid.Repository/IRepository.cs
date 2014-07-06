@@ -6,16 +6,12 @@ using System.Linq.Expressions;
 
 namespace StaticVoid.Repository
 {
-    public interface IRepository<T> : IDisposable where T : class
+	public interface IRepository<T> : IReadonlyRepository<T> where T : class
     {
         void Create(T entity);
 
         void Delete(T entity);
 
         void Update(T entity);
-
-        IQueryable<T> GetAll(params Expression<Func<T, object>>[] includes);
-
-        T GetBy(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
     }
 }

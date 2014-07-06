@@ -14,7 +14,7 @@
       A repository pattern Template.
     </description>
     <summary>http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html</summary>
-    <releaseNotes>Async CUD</releaseNotes>
+    <releaseNotes>Readonly repository</releaseNotes>
     <copyright>Luke McGregor</copyright>
     <language>en-NZ</language>
     <tags>Repository</tags>
