@@ -15,9 +15,12 @@ More information about how to use this solution and what the package does can be
 (http://blog.staticvoid.co.nz/2011/10/staticvoid-repository-pattern-nuget.html) 
 
 This is intended for usage with an IoC repository injection pattern. To bind to the repository in Ninject simply use: 
-	kernel.Bind(typeof(IRepositoryDataSource<>)).To(typeof(DbContextRepositoryDataSource<>)); 
-	kernel.Bind(typeof(IRepository<>)).To(typeof(SimpleRepository<>)); 
-this will allow you to inject repositories using the form IRepository<T> in your service implementations. 
+```csharp
+kernel.Bind(typeof(IRepositoryDataSource<>)).To(typeof(DbContextRepositoryDataSource<>)); 
+kernel.Bind(typeof(IRepository<>)).To(typeof(SimpleRepository<>)); 
+```
+
+this will allow you to inject repositories using the form `IRepository<T>` in your service implementations. 
 Repository will have basic methods implemented for the type to allow crud.
 
 
