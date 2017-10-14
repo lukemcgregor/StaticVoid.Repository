@@ -1,9 +1,10 @@
- _______ _______ _______ _______ _____ _______ _    _  _____  _____ ______ 
- |______    |    |_____|    |      |   |        \  /  |     |   |   |     \
- ______|    |    |     |    |    __|__ |_____    \/   |_____| __|__ |_____/
+### Check out my more recent ideas on repositories on my blog:
 
+ - [Composable repositories](http://blog.staticvoid.co.nz/2015/composable_repositories/)
 
-A repository pattern implementation for Code First. 
+---
+
+## A repository pattern implementation for Code First. 
 
 The compile library is avaliable on NuGet via 
 	Install-Package StaticVoid.Repository
